@@ -13,8 +13,12 @@ app.get("/blog",function(req,res){
     res.send("Bem-vindo ao meu blog!");
 });
 
-app.get('/ola/:cargo/:nome',function(req,res){
-    res.send("Ola");
+app.get('/ola/:cargo/:nome/:cor',function(req,res){
+    res.send("<h1>Ola "+req.params.nome+"</h1>"+
+    "<h2>Cargo: "+req.params.cargo+"</h2>"+
+    "<h3>Cor: "+req.params.cor+"</h3>");
+    
+   
 })
 
 
