@@ -22,6 +22,10 @@ app.get('/cad', function(req, res) {
     res.render('formulario'); //não precisa colocar a extensão handlebars
 })
 
+app.post('/add', function(req, res){
+    res.send('FORMULÁRIO RECEBIDO!');
+})
+
 app.listen(8081, function() {
     console.log("Servidor rodando na  url http://localhost:8081");
 });
