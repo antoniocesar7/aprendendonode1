@@ -17,32 +17,22 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-    Post.findAll().then(function (posts) {
-        // Filtrando os dados antes de mandar para View
-        const context = {
-            postsContext: posts.map(post => {
-                return {
-                    titulo: post.titulo,
-                    conteudo: post.conteudo
-                }
-            })
-        }
-        res.render('home', { posts: context. postsContext })
+// //Conexão com o Banco de Dados Mysql
+// const sequelize = new Sequelize('testenode', 'root', '', {
+//     host: "localhost",
+//     dialect: 'mysql'
+// })
+
+//Rotas
+
+//Quando cadastrar, passar para outra página... redirecionamento dentro Express
+//1º criar uma rota
+app.get('/', function(req, res)  {
+    
+   Post.findAll().then(function(posts){
+        res.render("home", {nome: "fulano",sobrenome: "de Tal"});
     })
 })
-// app.get('/', function(req, res)  {
-    
-//    Post.findAll().then(function(posts){
-//         res.render("home", {posts:posts});
-//     })
-// }) 
-
-// app.get('/', function(req, res){
-//     Post.findAll().then(function(posts){
-//         res.render('home', {posts: posts})
-//     })
-// })
 
 app.get('/cad', function(req, res) {
     //res.send('ROTA DE CADASTRO DE POSTS');
